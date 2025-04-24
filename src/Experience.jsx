@@ -13,6 +13,12 @@ export default function Experience() {
       min: -10,
       max: 10,
     },
+    position: {
+      value: [1, 3, 10],
+      step: 0.1,
+      min: -10,
+      max: 20,
+    },
   });
 
   return (

@@ -69,7 +69,7 @@ const App = () => {
         far: camera.far,
         position: camera.position,
         rotation: camera.rotation,
-        zoom: camera.zoom,
+        zoom: camera.zoom
       }}
     >
       <CameraController cameraSettings={camera} />
