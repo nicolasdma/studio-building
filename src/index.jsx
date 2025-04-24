@@ -72,6 +72,7 @@ const App = () => {
         zoom: camera.zoom
       }}
     >
+      <color attach="background" args={["black"]} />
       <CameraController cameraSettings={camera} />
       <Experience />
     </Canvas>

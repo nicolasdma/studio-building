@@ -1,8 +1,8 @@
 import React from "react";
-import { useGLTF } from "@react-three/drei";
+import { useGLTF, useTexture } from "@react-three/drei";
 
 export default function Model(props) {
-  const { nodes, materials } = useGLTF("/building-unwraping-merged.glb");
+  const { nodes, materials } = useGLTF('/building-unwraping-merged.glb')
   return (
     <group {...props} dispose={null}>
       <mesh
@@ -24,7 +24,7 @@ export default function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.machineFloor.geometry}
-        material={materials["Material.006"]}
+        material={materials['Material.006']}
         position={[-5.126, 0, -5.63]}
         rotation={[-Math.PI, 0, -Math.PI]}
         scale={2}
@@ -69,7 +69,7 @@ export default function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Plane001.geometry}
-        material={materials["Material.004"]}
+        material={materials['Material.004']}
         position={[-5.126, 0.056, -5.63]}
         rotation={[-Math.PI, 0, -Math.PI]}
       />
@@ -110,7 +110,7 @@ export default function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.displayerGlass.geometry}
-        material={materials["Material.001"]}
+        material={materials['Material.001']}
         position={[-5.829, 2.51, -4.816]}
         rotation={[-Math.PI, 0, -Math.PI]}
         scale={[1, 0.823, 1]}
@@ -128,7 +128,7 @@ export default function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Plane008.geometry}
-        material={materials["Material.002"]}
+        material={materials['Material.002']}
         position={[-5.833, 1.887, -4.895]}
         rotation={[-Math.PI, 0, -Math.PI]}
         scale={0.882}
@@ -154,7 +154,7 @@ export default function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Plane011.geometry}
-        material={materials["Material.004"]}
+        material={materials['Material.004']}
         position={[-4.866, 3.388, -5.971]}
         rotation={[-Math.PI, 0, -Math.PI]}
       />
@@ -162,7 +162,7 @@ export default function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Plane012.geometry}
-        material={materials["Material.004"]}
+        material={materials['Material.004']}
         position={[-5.363, 4.352, -5.552]}
         rotation={[-Math.PI, 0, -Math.PI]}
         scale={[1, 1, 0.856]}
@@ -171,7 +171,7 @@ export default function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Plane013.geometry}
-        material={materials["Material.002"]}
+        material={materials['Material.002']}
         position={[-5.363, 4.352, -5.656]}
         rotation={[-Math.PI, 0, -Math.PI]}
         scale={[1, 1, 0.856]}
@@ -180,7 +180,7 @@ export default function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Plane015.geometry}
-        material={materials["Material.004"]}
+        material={materials['Material.004']}
         position={[-5.047, 1.944, -6.763]}
         rotation={[-Math.PI, 0, -Math.PI]}
       />
@@ -188,7 +188,7 @@ export default function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Plane016.geometry}
-        material={materials["Material.005"]}
+        material={materials['Material.005']}
         position={[-5.047, 1.574, -6.899]}
         rotation={[-Math.PI, 0, -Math.PI]}
       />
@@ -233,8 +233,7 @@ export default function Model(props) {
         material={nodes.Plane006.material}
         position={[6.455, -0.338, 8.705]}
         rotation={[0, 0.536, 0]}
-        scale={0.62}
-      >
+        scale={0.62}>
         <mesh
           castShadow
           receiveShadow
@@ -360,8 +359,7 @@ export default function Model(props) {
         geometry={nodes.Vert020.geometry}
         material={nodes.Vert020.material}
         position={[8.08, 3.665, -6.176]}
-        scale={[0.693, 0.781, 0.866]}
-      >
+        scale={[0.693, 0.781, 0.866]}>
         <mesh
           castShadow
           receiveShadow
@@ -484,8 +482,7 @@ export default function Model(props) {
         geometry={nodes.Plane054.geometry}
         material={nodes.Plane054.material}
         position={[-0.763, 13.969, 7.756]}
-        rotation={[Math.PI / 2, 0, 0]}
-      >
+        rotation={[Math.PI / 2, 0, 0]}>
         <mesh
           castShadow
           receiveShadow
@@ -526,8 +523,7 @@ export default function Model(props) {
         material={nodes.Vert022.material}
         position={[3.18, 3.665, -11.028]}
         rotation={[0, Math.PI / 2, 0]}
-        scale={[0.693, 0.781, 0.866]}
-      >
+        scale={[0.693, 0.781, 0.866]}>
         <mesh
           castShadow
           receiveShadow
@@ -549,7 +545,7 @@ export default function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Text.geometry}
-        material={materials["Material.001"]}
+        material={materials['Material.001']}
         position={[-5.37, 4.352, -5.621]}
         rotation={[Math.PI / 2, 0, 1.571]}
         scale={0.879}
@@ -558,7 +554,7 @@ export default function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Text001.geometry}
-        material={materials["Material.002"]}
+        material={materials['Material.002']}
         position={[-5.435, 3.787, -5.637]}
         rotation={[Math.PI / 2, 0, 1.571]}
         scale={1.29}
@@ -986,8 +982,7 @@ export default function Model(props) {
         material={nodes.Circle013.material}
         position={[6.523, 7.487, -1.472]}
         rotation={[Math.PI / 2, 0, -Math.PI / 2]}
-        scale={1.029}
-      >
+        scale={1.029}>
         <mesh
           castShadow
           receiveShadow
@@ -1020,7 +1015,7 @@ export default function Model(props) {
         position={[-9.006, 14.961, 6.467]}
       />
     </group>
-  );
+  )
 }
 
-useGLTF.preload("/building-unwraping-merged.glb");
+useGLTF.preload('/building-unwraping-merged.glb')
