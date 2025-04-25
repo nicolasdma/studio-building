@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import { OrbitControls } from "@react-three/drei";
-// import { Perf } from "r3f-perf";
+import { Perf } from "r3f-perf";
 import { Model } from "./Model.jsx";
 import Placeholder from "./Placeholder.jsx";
 import { Center, Sparkles, Bvh } from "@react-three/drei";
@@ -14,7 +14,7 @@ export default function Experience() {
   return (
     <>
       <Bvh>
-        {/* <Perf position="top-left" /> */}
+        <Perf position="top-left" />
         <Center>
           <Sparkles
             count={50}

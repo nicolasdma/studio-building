@@ -7,7 +7,9 @@ import {
   Bloom,
   Noise,
   Vignette,
+  ToneMapping,
 } from "@react-three/postprocessing";
+import { ToneMappingMode } from "postprocessing";
 
 const App = () => {
   return (
@@ -37,8 +39,34 @@ const App = () => {
           luminanceThreshold={0.2}
           luminanceSmoothing={0.9}
         />
-         {/* <Noise opacity={0.04} /> */}
+        {/* <Noise opacity={0.04} /> */}
         <Vignette eskil={false} offset={0} darkness={1.2} />
+        <ToneMapping
+          adaptive
+          resolution={256}
+          middleGrey={0.4}
+          maxLuminance={10}
+          minLuminance={0.01}
+          averageLuminance={0.1}
+          luminanceSmoothing={0.9}
+          exposure={0.5}
+          mode={ToneMappingMode.NEUTRAL}
+          // toneMapping={1}
+          // toneMappingExposure={1}
+          // toneMappingWhitePoint={1}
+          // toneMappingType={0}
+          // toneMappingOperator={0}
+          // toneMappingOperatorType={0}
+          // toneMappingOperatorExposure={1}
+          // toneMappingOperatorWhitePoint={1}
+          // toneMappingOperatorGamma={1}
+          // toneMappingOperatorSaturation={1}
+          // toneMappingOperatorContrast={1}
+          // toneMappingOperatorBrightness={1}
+          // toneMappingOperatorHue={1}
+          // toneMappingOperatorLightness={1}
+          // toneMappingOperatorLightnessSaturation={1}
+        />
       </EffectComposer>
     </Canvas>
   );
