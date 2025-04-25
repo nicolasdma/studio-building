@@ -9,6 +9,7 @@ import {
   Vignette,
   ToneMapping,
   Glitch,
+  DepthOfField,
 } from "@react-three/postprocessing";
 import { ToneMappingMode, BlendFunction, GlitchMode } from "postprocessing";
 
@@ -38,7 +39,7 @@ const App = () => {
         <Vignette
           eskil={false}
           offset={0}
-          darkness={1.2}
+          darkness={1.1}
           // blendFunction={BlendFunction.OVERLAY}
         />
         <Bloom
@@ -55,6 +56,13 @@ const App = () => {
           ratio={[0.1, 0.2]}
         /> */}
         {/* <Noise opacity={.4}  premultiply /> */}
+        {/* <DepthOfField
+          focusDistance={0.01}
+          focalLength={0.1}
+          bokehScale={2}
+          height={480}
+          blur={0.5}
+        /> */}
         <ToneMapping
           multisampling={0}
           adaptive
