@@ -76,8 +76,8 @@ useHelper(dirLightRef, DirectionalLightHelper, 1, color);
 
       
       <OrbitControls target={target} makeDefault 
-        minPolarAngle={2}
-        maxPolarAngle={2}
+        minPolarAngle={1.25}
+        maxPolarAngle={2.1}
         // minDistance={5}
         // maxDistance={5}
         enablePan={false}
