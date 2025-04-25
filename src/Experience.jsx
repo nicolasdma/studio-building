@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import { OrbitControls } from "@react-three/drei";
 import { Perf } from "r3f-perf";
-import Model from "./Model.jsx";
+import {Model} from "./Model.jsx";
 import Placeholder from "./Placeholder.jsx";
 import { useControls } from "leva";
 import { useHelper } from "@react-three/drei";
