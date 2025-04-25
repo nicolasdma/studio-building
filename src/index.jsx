@@ -8,7 +8,7 @@ import { useThree } from "@react-three/fiber";
 
 const CameraController = ({ cameraSettings }) => {
   const { camera } = useThree();
-
+  console.log(cameraSettings)
   useEffect(() => {
     camera.fov = cameraSettings.fov;
     camera.near = cameraSettings.near;
@@ -53,7 +53,7 @@ const App = () => {
         max: Math.PI,
     },
     zoom: {
-      value: 1,
+      value: .8,
       min: 0.1,
       max: 10,
       step: 0.1,
@@ -68,7 +68,7 @@ const App = () => {
         near: camera.near,
         far: camera.far,
         position: camera.position,
-        rotation: camera.rotation,
+        // rotation: camera.rotation,
         zoom: camera.zoom
       }}
     >

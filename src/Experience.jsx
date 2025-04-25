@@ -8,7 +8,6 @@ import { useHelper } from "@react-three/drei";
 import { DirectionalLightHelper } from "three";
 import { useRef } from "react";
 
-
 export default function Experience() {
   const { target } = useControls("OrbitControls", {
     target: {
@@ -75,7 +74,7 @@ useHelper(dirLightRef, DirectionalLightHelper, 1, color);
       {/* <Perf position="top-left" /> */}
 
       
-      <OrbitControls target={target} makeDefault 
+      <OrbitControls makeDefault 
         minPolarAngle={2}
         maxPolarAngle={2}
         // minDistance={5}
