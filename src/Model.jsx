@@ -11,7 +11,7 @@ export function Model(props) {
   return (
     <Center>
       <group {...props} dispose={null} 
-        rotation={[0, Math.PI / 3.5, 0]}
+        rotation={[0, Math.PI / 4, 0]}
       >
         <mesh
           castShadow
