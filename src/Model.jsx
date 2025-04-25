@@ -1,16 +1,44 @@
 import React from "react";
-import { Center, meshBounds, useGLTF } from "@react-three/drei";
+import { shaderMaterial, Center, meshBounds, useGLTF } from "@react-three/drei";
+import portalVertexShader from "./shaders/portal/vertex.glsl";
+import portalFragmentShader from "./shaders/portal/fragment.glsl";
+import { useFrame, extend } from "@react-three/fiber";
+import * as THREE from "three";
+import { useRef } from "react";
+
+const PortalMaterial = shaderMaterial(
+  {
+    uTime: 0,
+    uColorStart: new THREE.Color("#92FDDB"),
+    uColorEnd: new THREE.Color("#FEAAB6"),
+  },
+  portalVertexShader,
+  portalFragmentShader
+);
+
+extend({ PortalMaterial });
 
 export function Model({ onClick }) {
   const { nodes, materials } = useGLTF("/building-unwraping-merged-2.glb");
 
-  const cursorPointer = () => {
-    document.body.style.cursor = "pointer"
-  }
-  const defaultPointer = () => {
-    document.body.style.cursor = "default"
-  }
+  const portalMaterial = useRef();
+  const upperWindowMaterial = useRef();
+  const squareWindowMaterial = useRef();
 
+  useFrame((state, delta) => {
+    portalMaterial.current.uTime += delta * 1.2;
+    upperWindowMaterial.current.uTime += delta * 1.4;
+    squareWindowMaterial.current.uTime += delta * 1.6;
+  });
+
+  const cursorPointer = () => {
+    document.body.style.cursor = "pointer";
+  };
+  const defaultPointer = () => {
+    document.body.style.cursor = "default";
+  };
+
+  console.log(nodes.Plane014.geometry);
   return (
     <Center>
       <group dispose={null} rotation={[0, Math.PI / 7, 0]}>
@@ -821,6 +849,27 @@ export function Model({ onClick }) {
           material={nodes.Plane030.material}
           position={[0.464, -0.689, -0.977]}
         />
+        <mesh
+          geometry={new THREE.PlaneGeometry(3, 3)}
+          position={[7.75, 2.47, -4.5]} 
+          rotation={[0, Math.PI / 2, 0]} 
+        >
+          <portalMaterial ref={squareWindowMaterial} />
+        </mesh>
+        <mesh
+          geometry={new THREE.PlaneGeometry(3, 4)}
+          position={[7.53, 2.45, -1.6]}
+          rotation={[0, Math.PI / 2, 0]}
+        >
+          <portalMaterial ref={upperWindowMaterial} />
+        </mesh>
+        <mesh
+          geometry={new THREE.PlaneGeometry(2.5, 2)}
+          position={[7.54, .4, -1.6]}
+          rotation={[0, Math.PI / 2, 0]}
+        >
+          <portalMaterial ref={portalMaterial} />
+        </mesh>
         <mesh
           castShadow
           receiveShadow

@@ -31,7 +31,7 @@ const AudioController = ({ audioRef }) => {
     volume = Math.max(0, Math.min(1, volume)); // Clamp 0–1
 
     // Apply maxVolume multiplier
-    audioRef.current.volume = volume * 0.8;
+    audioRef.current.volume = volume * 1;
   });
 
   return null;
@@ -43,6 +43,7 @@ const App = () => {
   useEffect(() => {
     const playAudio = () => {
       if (audioAmbientRef.current) {
+        audioAmbientRef.current.volume = 0.2;
         audioAmbientRef.current.play().catch((e) => {
           console.log("Autoplay failed:", e);
         });
@@ -70,7 +71,7 @@ const App = () => {
   return (
     <>
       <audio ref={audioAmbientRef} src="./audio/ambient-4.mp3" loop />
-      <audio ref={audioNightClubRef} src="./audio/night-club.mp3" loop />
+      <audio ref={audioNightClubRef} src="./audio/night-club-2.mp3" loop />
       <Canvas
         shadows
         flat
