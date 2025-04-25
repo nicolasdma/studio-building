@@ -14,7 +14,7 @@ export default function Experience() {
   return (
     <>
       <Bvh>
-        {/* <Perf position="top-left" /> */}
+        <Perf position="top-left" />
         <Center>
           <Sparkles
             count={50}
@@ -29,8 +29,8 @@ export default function Experience() {
           makeDefault
           minPolarAngle={2}
           maxPolarAngle={2}
-          // enablePan={false}
-          // enableZoom={false}
+          enablePan={false}
+          enableZoom={false}
           position={[0, 10, 10]}
         />
 
