@@ -14,39 +14,28 @@ import {
 import { ToneMappingMode, BlendFunction, GlitchMode } from "postprocessing";
 import { useEffect, useRef } from "react";
 
-const targetX = 12;
-const targetZ = -5;
 const AudioController = ({ audioRef }) => {
   const { camera } = useThree();
+  const target = useRef({ x: 12.14, z: -5 });
+  const range = 10; // Volume drops off after this distance
 
   useFrame(() => {
-    if (audioRef.current) {
-      // Let's say the nightclub is around x = 5
-      // const targetX = 5;
+    if (!audioRef.current || !camera) return;
 
-      // How far the sound "spreads"
-      const range = 10; 
+    const dx = camera.position.x - target.current.x;
+    const dz = camera.position.z - target.current.z;
+    const distance = Math.sqrt(dx * dx + dz * dz);
 
-      const dx = camera.position.x - targetX;
-      const dz = camera.position.z - targetZ;
+    // Calculate volume based on proximity
+    let volume = 1 - distance / range;
+    volume = Math.max(0, Math.min(1, volume)); // Clamp 0–1
 
-      const distance = Math.sqrt(dx * dx + dz * dz); 
-
-      // Calculate distance from target
-      // const distance = Math.abs(camera.position.x - targetX);
-
-      // Map distance to volume (closer = louder, farther = quieter)
-      let volume = 1 - distance / range;
-
-      volume = Math.max(0, Math.min(1, volume)); // clamp between 0 and 1
-      console.log(volume, camera.position.x, camera.position.z);
-      audioRef.current.volume = volume * 1; // 0.8 is the max volume
-    }
+    // Apply maxVolume multiplier
+    audioRef.current.volume = volume * 0.8;
   });
 
   return null;
 };
-
 const App = () => {
   const audioAmbientRef = useRef(null);
   const audioNightClubRef = useRef(null);
