@@ -25,7 +25,7 @@ const CameraController = ({ cameraSettings }) => {
 const App = () => {
   const camera = useControls("Camera", {
     fov: {
-      value: 85,
+      value: 100,
       min: 1,
       max: 100,
       step: 1,

@@ -200,7 +200,7 @@ export function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Text002.geometry}
-        material={materials.Black}
+        material={materials['Neon Purple']}
         position={[0.955, 7.036, 4.611]}
         rotation={[Math.PI / 2, 0, 0]}
         scale={[1.564, 1.564, 2.079]}
@@ -218,7 +218,7 @@ export function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Text004.geometry}
-        material={materials['Neon Yellow']}
+        material={materials['Neon Green']}
         position={[14.815, 14.885, -9.872]}
         rotation={[Math.PI / 2, 0, 0]}
         scale={[1.847, 1.596, 2.121]}
@@ -227,7 +227,7 @@ export function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Vert014.geometry}
-        material={materials['Neon Red']}
+        material={materials['Neon Green']}
         position={[15.176, 14.739, -9.872]}
         scale={[1.158, 1, 1]}
       />
@@ -969,7 +969,7 @@ export function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Plane003.geometry}
-        material={materials['Neon Purple']}
+        material={materials.Black}
         position={[0.955, 6.087, 3.721]}
         scale={[1.039, 1, 1]}
       />
