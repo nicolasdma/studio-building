@@ -63,6 +63,7 @@ const App = () => {
   return (
     <Canvas
       shadows
+      flat
       camera={{
         fov: camera.fov,
         near: camera.near,
