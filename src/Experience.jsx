@@ -52,9 +52,9 @@ export default function Experience() {
     <Center>
       {/* <Perf position="top-left" /> */}
       <Sparkles 
-        // count={50}
+        count={50}
         size={4}
-        scale={50}
+        scale={30}
         color={"#68ffd1"}
         position-y={1}
       />
