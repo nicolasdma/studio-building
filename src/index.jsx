@@ -60,6 +60,26 @@ const App = () => {
     }
   });
 
+  const fog = useControls("Fog", {
+    color: {
+      value: "#0f1a2a",
+    },
+    near: {
+      value: 5,
+      step: 0.1,
+      min: 0,
+      max: 10,
+    },
+    far: {
+      value: 15,
+      step: 0.1,
+      min: 10,
+      max: 20,
+    },
+  });
+
+  
+
   return (
     <Canvas
       shadows
@@ -72,8 +92,10 @@ const App = () => {
         // rotation: camera.rotation,
         zoom: camera.zoom
       }}
+      
     >
       <color attach="background" args={["black"]} />
+      <fog attach="fog" args={[fog.color, fog.near, fog.far]} />
       <CameraController cameraSettings={camera} />
       <Experience />
     </Canvas>
