@@ -34,11 +34,11 @@ const App = () => {
       <EffectComposer>
         <Bloom
           intensity={0.2}
-          // luminanceThreshold={0.2}
-          // luminanceSmoothing={0.2}
+          luminanceThreshold={0.2}
+          luminanceSmoothing={0.9}
         />
-        <Noise opacity={0.04} />
-        <Vignette eskil={false} offset={0.1} darkness={1.2} />
+         {/* <Noise opacity={0.04} /> */}
+        <Vignette eskil={false} offset={0} darkness={1.2} />
       </EffectComposer>
     </Canvas>
   );
