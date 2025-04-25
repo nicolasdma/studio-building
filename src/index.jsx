@@ -42,19 +42,19 @@ const App = () => {
           // blendFunction={BlendFunction.OVERLAY}
         />
         <Bloom
-          intensity={0.3}
+          intensity={0.2}
           luminanceThreshold={0.2}
           luminanceSmoothing={0.9}
           mipmapBlur
         />
-        <Glitch
+        {/* <Glitch
           delay={[0.1, 30]}
           duration={[0.1, 0.4]}
           strength={[0.05, 0.01]}
           active={true}
           ratio={[0.1, 0.2]}
-        />
-        <Noise opacity={.4}  premultiply />
+        /> */}
+        {/* <Noise opacity={.4}  premultiply /> */}
         <ToneMapping
           multisampling={0}
           adaptive
