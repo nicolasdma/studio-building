@@ -49,15 +49,17 @@ export default function Experience() {
   useHelper(dirLightRef, DirectionalLightHelper, 1, color);
 
   return (
-    <Center>
+    <>
       {/* <Perf position="top-left" /> */}
-      <Sparkles 
-        count={50}
-        size={4}
-        scale={30}
-        color={"#68ffd1"}
-        position-y={1}
-      />
+      <Center>
+        <Sparkles
+          count={50}
+          size={4}
+          scale={30}
+          color={"#68ffd1"}
+          position-y={1}
+        />
+      </Center>
 
       <OrbitControls
         makeDefault
@@ -103,6 +105,6 @@ export default function Experience() {
       <Suspense fallback={<Placeholder />}>
         <Model />
       </Suspense>
-    </Center>
+    </>
   );
 }
