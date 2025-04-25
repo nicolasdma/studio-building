@@ -20,7 +20,7 @@ export function Model({ onClick }) {
   useHelper(pointLightRef, DirectionalLightHelper, 1, "#79AFFF");
   return (
     <Center>
-      <group dispose={null} rotation={[0, Math.PI / 3.6, 0]}>
+      <group dispose={null} rotation={[0, Math.PI / 9, 0]}>
         <mesh
           castShadow
           receiveShadow

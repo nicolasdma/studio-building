@@ -65,16 +65,16 @@ const App = () => {
       value: "#0f1a2a",
     },
     near: {
-      value: 5,
+      value: 10,
       step: 0.1,
       min: 0,
-      max: 10,
+      max: 20,
     },
     far: {
-      value: 15,
+      value: 20,
       step: 0.1,
       min: 10,
-      max: 20,
+      max: 50,
     },
   });
 
