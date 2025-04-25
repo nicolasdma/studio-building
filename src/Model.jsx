@@ -13,7 +13,7 @@ export function Model({ onClick }) {
 
   return (
     <Center>
-      <group dispose={null} rotation={[0, Math.PI / 9, 0]}>
+      <group dispose={null} rotation={[0, Math.PI / 7, 0]}>
         <mesh
           castShadow
           receiveShadow

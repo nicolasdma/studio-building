@@ -8,8 +8,9 @@ import {
   Noise,
   Vignette,
   ToneMapping,
+  Glitch,
 } from "@react-three/postprocessing";
-import { ToneMappingMode } from "postprocessing";
+import { ToneMappingMode, BlendFunction, GlitchMode } from "postprocessing";
 
 const App = () => {
   return (
@@ -34,14 +35,28 @@ const App = () => {
       <Experience />
 
       <EffectComposer>
+        <Vignette
+          eskil={false}
+          offset={0}
+          darkness={1.2}
+          // blendFunction={BlendFunction.OVERLAY}
+        />
         <Bloom
-          intensity={0.2}
+          intensity={0.3}
           luminanceThreshold={0.2}
           luminanceSmoothing={0.9}
+          mipmapBlur
         />
-        {/* <Noise opacity={0.04} /> */}
-        <Vignette eskil={false} offset={0} darkness={1.2} />
+        <Glitch
+          delay={[0.1, 30]}
+          duration={[0.1, 0.4]}
+          strength={[0.05, 0.01]}
+          active={true}
+          ratio={[0.1, 0.2]}
+        />
+        <Noise opacity={.4}  premultiply />
         <ToneMapping
+          multisampling={0}
           adaptive
           resolution={256}
           middleGrey={0.4}
@@ -51,21 +66,6 @@ const App = () => {
           luminanceSmoothing={0.9}
           exposure={0.5}
           mode={ToneMappingMode.NEUTRAL}
-          // toneMapping={1}
-          // toneMappingExposure={1}
-          // toneMappingWhitePoint={1}
-          // toneMappingType={0}
-          // toneMappingOperator={0}
-          // toneMappingOperatorType={0}
-          // toneMappingOperatorExposure={1}
-          // toneMappingOperatorWhitePoint={1}
-          // toneMappingOperatorGamma={1}
-          // toneMappingOperatorSaturation={1}
-          // toneMappingOperatorContrast={1}
-          // toneMappingOperatorBrightness={1}
-          // toneMappingOperatorHue={1}
-          // toneMappingOperatorLightness={1}
-          // toneMappingOperatorLightnessSaturation={1}
         />
       </EffectComposer>
     </Canvas>
