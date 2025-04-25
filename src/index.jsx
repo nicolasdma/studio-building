@@ -5,10 +5,16 @@ import Experience from "./Experience.jsx";
 import { useControls } from "leva";
 import { useEffect } from "react";
 import { useThree } from "@react-three/fiber";
+import {
+  EffectComposer,
+  Bloom,
+  Noise,
+  Vignette,
+} from "@react-three/postprocessing";
 
 const CameraController = ({ cameraSettings }) => {
   const { camera } = useThree();
-  console.log(cameraSettings)
+  console.log(cameraSettings);
   useEffect(() => {
     camera.fov = cameraSettings.fov;
     camera.near = cameraSettings.near;
@@ -49,15 +55,15 @@ const App = () => {
     rotation: {
       value: [0, 0, 0],
       step: 0.1,
-        min: -Math.PI,
-        max: Math.PI,
+      min: -Math.PI,
+      max: Math.PI,
     },
     zoom: {
-      value: .8,
+      value: 0.8,
       min: 0.1,
       max: 10,
       step: 0.1,
-    }
+    },
   });
 
   const fog = useControls("Fog", {
@@ -78,8 +84,6 @@ const App = () => {
     },
   });
 
-  
-
   return (
     <Canvas
       shadows
@@ -90,14 +94,28 @@ const App = () => {
         far: camera.far,
         position: camera.position,
         // rotation: camera.rotation,
-        zoom: camera.zoom
+        zoom: camera.zoom,
       }}
-      
     >
       <color attach="background" args={["black"]} />
       <fog attach="fog" args={[fog.color, fog.near, fog.far]} />
+
+      <ambientLight intensity={1} />
+      <pointLight position={[5, 5, 5]} intensity={5} color="#b4f8c8" />
+      <pointLight position={[-5, -5, 5]} intensity={10} color="#94d2bd" />
+
       <CameraController cameraSettings={camera} />
       <Experience />
+
+      <EffectComposer>
+        <Bloom
+          intensity={0.25}
+          luminanceThreshold={0.2}
+          luminanceSmoothing={0.9}
+        />
+        <Noise opacity={0.04} />
+        <Vignette eskil={false} offset={0.1} darkness={1.2} />
+      </EffectComposer>
     </Canvas>
   );
 };
