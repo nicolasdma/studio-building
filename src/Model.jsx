@@ -2,9 +2,10 @@ import React from "react";
 import { shaderMaterial, Center, meshBounds, useGLTF } from "@react-three/drei";
 import portalVertexShader from "./shaders/vertex.glsl";
 import portalFragmentShader from "./shaders/fragment.glsl";
-import { useFrame, extend } from "@react-three/fiber";
+import { useFrame, extend, useThree } from "@react-three/fiber";
 import * as THREE from "three";
 import { useRef } from "react";
+import { useControls } from "leva";
 
 const PortalMaterial = shaderMaterial(
   {
@@ -20,6 +21,7 @@ extend({ PortalMaterial });
 
 export function Model({ onClick }) {
   const { nodes, materials } = useGLTF("/building-unwraping-merged-2.glb");
+  // const [position, setPosition] = React.useState([0, 0, 0]);
 
   const portalMaterial = useRef();
   const upperWindowMaterial = useRef();
@@ -29,6 +31,8 @@ export function Model({ onClick }) {
     portalMaterial.current.uTime += delta * 1.2;
     upperWindowMaterial.current.uTime += delta * 1.4;
     squareWindowMaterial.current.uTime += delta * 1.6;
+
+    // console.log(camera.position);
   });
 
   const cursorPointer = () => {
@@ -38,7 +42,6 @@ export function Model({ onClick }) {
     document.body.style.cursor = "default";
   };
 
-  console.log(nodes.Plane014.geometry);
   return (
     <Center>
       <group dispose={null} rotation={[0, Math.PI / 7, 0]}>
@@ -681,7 +684,7 @@ export function Model({ onClick }) {
           geometry={nodes.Plane014.geometry}
           material={materials.Heramientas}
           position={[-3.588, -0.308, 5.954]}
-          onClick={onClick}
+          onClick={(e) => onClick(e)}
           onPointerEnter={cursorPointer}
           onPointerLeave={defaultPointer}
           raycast={meshBounds}
@@ -851,8 +854,8 @@ export function Model({ onClick }) {
         />
         <mesh
           geometry={new THREE.PlaneGeometry(3, 3)}
-          position={[7.75, 2.47, -4.5]} 
-          rotation={[0, Math.PI / 2, 0]} 
+          position={[7.75, 2.47, -4.5]}
+          rotation={[0, Math.PI / 2, 0]}
         >
           <portalMaterial ref={squareWindowMaterial} />
         </mesh>
@@ -865,7 +868,7 @@ export function Model({ onClick }) {
         </mesh>
         <mesh
           geometry={new THREE.PlaneGeometry(2.5, 2)}
-          position={[7.54, .4, -1.6]}
+          position={[7.54, 0.4, -1.6]}
           rotation={[0, Math.PI / 2, 0]}
         >
           <portalMaterial ref={portalMaterial} />
