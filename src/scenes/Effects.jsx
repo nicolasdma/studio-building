@@ -1,6 +1,7 @@
+import React from "react";
 import { Sparkles } from "@react-three/drei";
 
-export default function Effects() {
+const Effects = () => {
   return (
     <Sparkles
       count={50}
@@ -10,4 +11,6 @@ export default function Effects() {
       position-y={2}
     />
   );
-}
+} 
+
+export default React.memo(Effects);

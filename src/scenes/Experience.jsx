@@ -1,7 +1,7 @@
 import { Suspense, useRef, useState } from "react";
 import { OrbitControls, Bvh, Center } from "@react-three/drei";
 import { Perf } from "r3f-perf";
-import { Model } from "../Model.jsx";
+import Model from "../Model.jsx";
 import Placeholder from "../Placeholder.jsx";
 import Lights from "./Lights.jsx";
 import Effects from "./Effects.jsx";
@@ -38,7 +38,8 @@ export default function Experience() {
       <Center>
         <Effects />
       </Center>
-
+        {/* <Perf position="top-left" /> */}
+    
       <OrbitControls
         ref={controlsRef}
         makeDefault

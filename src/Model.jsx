@@ -19,7 +19,7 @@ const PortalMaterial = shaderMaterial(
 
 extend({ PortalMaterial });
 
-export function Model({ onClick }) {
+const Model = ({ onClick }) => {
   const { nodes, materials } = useGLTF("/building-unwraping-merged-2.glb");
   // const [position, setPosition] = React.useState([0, 0, 0]);
 
@@ -1120,5 +1120,7 @@ export function Model({ onClick }) {
     </Center>
   );
 }
+
+export default React.memo(Model);
 
 useGLTF.preload("/building-unwraping-merged-2.glb");
