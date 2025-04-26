@@ -3,7 +3,12 @@ import "./style.css";
 import ReactDOM from "react-dom/client";
 import { Canvas } from "@react-three/fiber";
 import Experience from "./scenes/Experience.jsx";
-import { EffectComposer, Bloom, Vignette, ToneMapping } from "@react-three/postprocessing";
+import {
+  EffectComposer,
+  Bloom,
+  Vignette,
+  ToneMapping,
+} from "@react-three/postprocessing";
 import { ToneMappingMode } from "postprocessing";
 import { useRef } from "react";
 import AudioZoneController from "./utils/AudioZoneController.jsx";
@@ -24,17 +29,47 @@ const App = () => {
     { target: { x: 12.14, z: -5 }, range: 10, ref: audioRefs.nightClub },
     { target: { x: -13, z: 0 }, range: 10, ref: audioRefs.factory },
     { target: { x: 3, z: 11 }, range: 10, ref: audioRefs.lab, maxVolume: 0.6 },
-    { target: { x: -6, z: -12.5 }, range: 10, ref: audioRefs.food, maxVolume: 0.4 },
-    { target: { x: 0, z: 0 }, range: 30, ref: audioRefs.ambient, maxVolume: 0.2 },
+    {
+      target: { x: -6, z: -12.5 },
+      range: 10,
+      ref: audioRefs.food,
+      maxVolume: 0.4,
+    },
+    {
+      target: { x: 0, z: 0 },
+      range: 30,
+      ref: audioRefs.ambient,
+      maxVolume: 0.2,
+    },
   ];
 
   return (
     <>
-      <audio ref={audioRefs.ambient} src="./audio/ambient-4.mp3" loop />
-      <audio ref={audioRefs.nightClub} src="./audio/night-club-2.mp3" loop />
-      <audio ref={audioRefs.factory} src="./audio/factory.mp3" loop />
-      <audio ref={audioRefs.lab} src="./audio/construction.mp3" loop />
-      <audio ref={audioRefs.food} src="./audio/food.mp3" loop />
+      <audio
+        ref={audioRefs.ambient}
+        src="./audio/ambient-4.mp3"
+        loop
+        preload="auto"
+      />
+      <audio
+        ref={audioRefs.nightClub}
+        src="./audio/night-club-2.mp3"
+        loop
+        preload="auto"
+      />
+      <audio
+        ref={audioRefs.factory}
+        src="./audio/factory.mp3"
+        loop
+        preload="auto"
+      />
+      <audio
+        ref={audioRefs.lab}
+        src="./audio/construction.mp3"
+        loop
+        preload="auto"
+      />
+      <audio ref={audioRefs.food} src="./audio/food.mp3" loop preload="auto" />
 
       <Canvas
         shadows
@@ -67,7 +102,12 @@ const App = () => {
 
         <EffectComposer>
           <Vignette eskil={false} offset={0} darkness={1.1} />
-          <Bloom intensity={0.2} luminanceThreshold={0.2} luminanceSmoothing={0.9} mipmapBlur />
+          <Bloom
+            intensity={0.2}
+            luminanceThreshold={0.2}
+            luminanceSmoothing={0.9}
+            mipmapBlur
+          />
           <ToneMapping
             multisampling={0}
             adaptive
