@@ -7,6 +7,7 @@ import Lights from "./Lights.jsx";
 import Effects from "./Effects.jsx";
 import { useThree, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
+import WindowShaders from "../WindowShaders.jsx";
 
 export default function Experience() {
   const { camera } = useThree();
@@ -14,6 +15,7 @@ export default function Experience() {
   const [goal, setGoal] = useState(null);
 
   useFrame(() => {
+    // console.log(camera.position, camera.rotation);
     if (goal && controlsRef.current) {
       camera.position.lerp(goal.position, 0.05);
       controlsRef.current.target.lerp(goal.target, 0.05);
@@ -25,23 +27,36 @@ export default function Experience() {
     }
   });
 
-  const moveTo = (e) => {  
+
+  const moveTo = (e, camPosition, camRotation) => {
     const { object } = e;
-  
+
     const bbox = new THREE.Box3().setFromObject(object);
     const center = new THREE.Vector3();
     bbox.getCenter(center);
-  
-    const direction = new THREE.Vector3(0, 0, .25)
+
+    // Direction: you want the camera to be facing the model straight-on
+    const direction = new THREE.Vector3(0, 0, 0.25); //
+
+    // Calculate size for distance
     const size = bbox.getSize(new THREE.Vector3()).length();
-    const distance = size * 2;
-  
+    const distance = Math.max(4, size * 1.5);
+
+    // Calculate the camera position
     const position = center.clone().add(direction.multiplyScalar(distance));
-  
+
+    // Set the goal
     setGoal({
       position,
-      target: center
+      target: center,
     });
+
+    // 🆕 Important: Reset the orbit controls rotation
+    if (controlsRef.current) {
+      controlsRef.current.target.copy(center); // look at center
+      camera.lookAt(center); // force camera to look at center
+      controlsRef.current.update(); // refresh orbit controls
+    }
   };
 
   return (
@@ -49,13 +64,11 @@ export default function Experience() {
       <Center>
         <Effects />
       </Center>
-      {/* <Perf position="top-left" /> */}
+      <Perf position="top-left" />
 
       <OrbitControls
         ref={controlsRef}
         makeDefault
-        // minPolarAngle={1.2}
-        // maxPolarAngle={2.15}
         minPolarAngle={2}
         maxPolarAngle={2}
         enablePan={false}
@@ -72,7 +85,8 @@ export default function Experience() {
 
       <Suspense fallback={<Placeholder />}>
         <Center>
-          <Model onClick={moveTo} />
+          <Model  />
+          <WindowShaders />
         </Center>
       </Suspense>
     </Bvh>
