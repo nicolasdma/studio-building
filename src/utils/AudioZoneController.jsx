@@ -15,11 +15,11 @@ const AudioZoneController = ({ target, range = 10, audioRef, maxVolume = 1 }) =>
 
     audioRef.current.volume = volume;
 
-    if (volume > 0 && audioRef.current.paused) {
+    if (audioRef.current.paused) {
       audioRef.current.play().catch(() => {});
-    } else if (volume === 0 && !audioRef.current.paused) {
-      audioRef.current.pause();
     }
+    
+    audioRef.current.volume = volume;
   });
 
   return null;
