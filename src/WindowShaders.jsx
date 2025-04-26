@@ -35,7 +35,7 @@ const WindowShaders = () => {
   });
 
   return (
-<group dispose={null} rotation={[0, Math.PI / 7, 0]}>
+    <group dispose={null} rotation={[0, Math.PI / 7, 0]}>
       <mesh
         geometry={new THREE.PlaneGeometry(3, 3)}
         position={[7.75, 2.47, -4.5]}

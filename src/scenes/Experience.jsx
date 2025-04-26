@@ -64,7 +64,7 @@ export default function Experience() {
       <Center>
         <Effects />
       </Center>
-      <Perf position="top-left" />
+      {/* <Perf position="top-left" /> */}
 
       <OrbitControls
         ref={controlsRef}
