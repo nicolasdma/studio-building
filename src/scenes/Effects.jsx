@@ -1,5 +1,6 @@
 import React from "react";
 import { Sparkles } from "@react-three/drei";
+import * as THREE from "three";
 
 const Effects = () => {
   return (

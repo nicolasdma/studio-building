@@ -12,7 +12,7 @@ export default function Experience() {
   const { camera } = useThree();
   const controlsRef = useRef();
   const [goal, setGoal] = useState(null);
-  
+
   useFrame(() => {
     if (goal && controlsRef.current) {
       camera.position.lerp(goal.position, 0.05);
@@ -25,11 +25,22 @@ export default function Experience() {
     }
   });
 
-  const moveTo = (e) => {
-    console.log("Moving to:", e.point);
+  const moveTo = (e) => {  
+    const { object } = e;
+  
+    const bbox = new THREE.Box3().setFromObject(object);
+    const center = new THREE.Vector3();
+    bbox.getCenter(center);
+  
+    const direction = new THREE.Vector3(0, 0, .25)
+    const size = bbox.getSize(new THREE.Vector3()).length();
+    const distance = size * 2;
+  
+    const position = center.clone().add(direction.multiplyScalar(distance));
+  
     setGoal({
-      position: e.point.clone(),
-      target: e.point.clone()
+      position,
+      target: center
     });
   };
 
@@ -38,11 +49,13 @@ export default function Experience() {
       <Center>
         <Effects />
       </Center>
-        {/* <Perf position="top-left" /> */}
-    
+      {/* <Perf position="top-left" /> */}
+
       <OrbitControls
         ref={controlsRef}
         makeDefault
+        // minPolarAngle={1.2}
+        // maxPolarAngle={2.15}
         minPolarAngle={2}
         maxPolarAngle={2}
         enablePan={false}
@@ -58,7 +71,9 @@ export default function Experience() {
       />
 
       <Suspense fallback={<Placeholder />}>
-        <Model onClick={moveTo} />
+        <Center>
+          <Model onClick={moveTo} />
+        </Center>
       </Suspense>
     </Bvh>
   );

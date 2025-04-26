@@ -5,7 +5,6 @@ import portalFragmentShader from "./shaders/fragment.glsl";
 import { useFrame, extend, useThree } from "@react-three/fiber";
 import * as THREE from "three";
 import { useRef } from "react";
-import { useControls } from "leva";
 
 const PortalMaterial = shaderMaterial(
   {
@@ -43,7 +42,6 @@ const Model = ({ onClick }) => {
   };
 
   return (
-    <Center>
       <group dispose={null} rotation={[0, Math.PI / 7, 0]}>
         <mesh
           castShadow
@@ -677,6 +675,9 @@ const Model = ({ onClick }) => {
           geometry={nodes.Plane004.geometry}
           material={nodes.Plane004.material}
           position={[0, -0.689, -0.977]}
+          onPointerEnter={cursorPointer}
+          onPointerLeave={defaultPointer}
+          onClick={(e) => onClick(e)}
         />
         <mesh
           castShadow
@@ -1117,7 +1118,6 @@ const Model = ({ onClick }) => {
           position={[2.577, 13.196, 5.169]}
         />
       </group>
-    </Center>
   );
 }
 
