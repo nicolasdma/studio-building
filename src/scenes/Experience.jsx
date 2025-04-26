@@ -14,7 +14,7 @@ export default function Experience() {
 
   return (
     <Bvh>
-      <Perf position="top-left" />
+      {/* <Perf position="top-left" /> */}
       <Center>
         <Effects />
       </Center>

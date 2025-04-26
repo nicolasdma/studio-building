@@ -8,6 +8,8 @@ import {
   Bloom,
   Vignette,
   ToneMapping,
+  Glitch,
+  DepthOfField,
 } from "@react-three/postprocessing";
 import { ToneMappingMode } from "postprocessing";
 import { useRef } from "react";
@@ -120,6 +122,13 @@ const App = () => {
             exposure={0.5}
             mode={ToneMappingMode.NEUTRAL}
           />
+          {/* <Glitch
+            delay={[0.1, 20]}
+            duration={[0.1, 0.3]}
+            strength={[0.05, 0.2]}
+            active={true}
+            ratio={0.5}
+          /> */}
         </EffectComposer>
       </Canvas>
     </>
