@@ -1,7 +1,7 @@
 import React from "react";
 import { shaderMaterial, Center, meshBounds, useGLTF } from "@react-three/drei";
-import portalVertexShader from "./shaders/portal/vertex.glsl";
-import portalFragmentShader from "./shaders/portal/fragment.glsl";
+import portalVertexShader from "./shaders/vertex.glsl";
+import portalFragmentShader from "./shaders/fragment.glsl";
 import { useFrame, extend } from "@react-three/fiber";
 import * as THREE from "three";
 import { useRef } from "react";
