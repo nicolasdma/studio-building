@@ -1132,7 +1132,7 @@ export default function Model(props) {
   const { nodes, materials } = useGLTF("/building-unwraping-optimized.glb");
   return (
     <group dispose={null} rotation={[0, Math.PI / 7, 0]}>
-    <mesh
+      <mesh
         castShadow
         receiveShadow
         geometry={nodes.Catenary001.geometry}
@@ -1143,7 +1143,7 @@ export default function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.machineFloor.geometry}
-        material={materials['Material.006']}
+        material={materials["Material.006"]}
         position={[-5.126, 0, -5.63]}
         rotation={[-Math.PI, 0, -Math.PI]}
         scale={2}
@@ -1188,7 +1188,7 @@ export default function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Plane001.geometry}
-        material={materials['Material.004']}
+        material={materials["Material.004"]}
         position={[-5.126, 0.056, -5.63]}
         rotation={[-Math.PI, 0, -Math.PI]}
       />
@@ -1229,7 +1229,7 @@ export default function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.displayerGlass.geometry}
-        material={materials['Material.001']}
+        material={materials["Material.001"]}
         position={[-5.829, 2.51, -4.816]}
         rotation={[-Math.PI, 0, -Math.PI]}
         scale={[1, 0.823, 1]}
@@ -1247,7 +1247,7 @@ export default function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Plane008.geometry}
-        material={materials['Material.002']}
+        material={materials["Material.002"]}
         position={[-5.833, 1.887, -4.895]}
         rotation={[-Math.PI, 0, -Math.PI]}
         scale={0.882}
@@ -1273,7 +1273,7 @@ export default function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Plane011.geometry}
-        material={materials['Material.004']}
+        material={materials["Material.004"]}
         position={[-4.866, 3.388, -5.971]}
         rotation={[-Math.PI, 0, -Math.PI]}
       />
@@ -1281,7 +1281,7 @@ export default function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Plane012.geometry}
-        material={materials['Material.004']}
+        material={materials["Material.004"]}
         position={[-5.363, 4.352, -5.552]}
         rotation={[-Math.PI, 0, -Math.PI]}
         scale={[1, 1, 0.856]}
@@ -1290,7 +1290,7 @@ export default function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Plane013.geometry}
-        material={materials['Material.002']}
+        material={materials["Material.002"]}
         position={[-5.363, 4.352, -5.656]}
         rotation={[-Math.PI, 0, -Math.PI]}
         scale={[1, 1, 0.856]}
@@ -1299,7 +1299,7 @@ export default function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Plane015.geometry}
-        material={materials['Material.004']}
+        material={materials["Material.004"]}
         position={[-5.047, 1.944, -6.763]}
         rotation={[-Math.PI, 0, -Math.PI]}
       />
@@ -1307,7 +1307,7 @@ export default function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Plane016.geometry}
-        material={materials['Material.005']}
+        material={materials["Material.005"]}
         position={[-5.047, 1.574, -6.899]}
         rotation={[-Math.PI, 0, -Math.PI]}
       />
@@ -1315,7 +1315,7 @@ export default function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Text002.geometry}
-        material={materials['Neon Purple']}
+        material={materials["Neon Purple"]}
         position={[0.955, 7.036, 4.611]}
         rotation={[Math.PI / 2, 0, 0]}
         scale={[1.564, 1.564, 2.079]}
@@ -1333,7 +1333,7 @@ export default function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Text004.geometry}
-        material={materials['Material.001']}
+        material={materials["Material.001"]}
         position={[14.815, 14.885, -9.872]}
         rotation={[Math.PI / 2, 0, 0]}
         scale={[1.847, 1.596, 2.121]}
@@ -1342,7 +1342,7 @@ export default function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Vert014.geometry}
-        material={materials['Material.001']}
+        material={materials["Material.001"]}
         position={[15.176, 14.739, -9.872]}
         scale={[1.158, 1, 1]}
       />
@@ -1353,7 +1353,8 @@ export default function Model(props) {
         material={nodes.Plane006.material}
         position={[6.455, -0.338, 8.705]}
         rotation={[0, 0.536, 0]}
-        scale={0.62}>
+        scale={0.62}
+      >
         <mesh
           castShadow
           receiveShadow
@@ -1390,14 +1391,14 @@ export default function Model(props) {
           castShadow
           receiveShadow
           geometry={nodes.Vert015.geometry}
-          material={nodes.Vert015.material}
+          material={materials["Sign tube"]}
           position={[0, 0.125, 0]}
         />
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.Vert016.geometry}
-          material={nodes.Vert016.material}
+          material={materials["Sign tube"]}
           position={[5.439, 0.125, 0]}
         />
         <mesh
@@ -1477,9 +1478,10 @@ export default function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Vert020.geometry}
-        material={nodes.Vert020.material}
+        material={materials["Sign tube"]}
         position={[8.08, 3.665, -6.176]}
-        scale={[0.693, 0.781, 0.866]}>
+        scale={[0.693, 0.781, 0.866]}
+      >
         <mesh
           castShadow
           receiveShadow
@@ -1499,7 +1501,7 @@ export default function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Plane005.geometry}
-        material={nodes.Plane005.material}
+        material={materials.Cobre}
         position={[5.684, 10.101, -4.574]}
         rotation={[0, 0, -Math.PI / 2]}
         scale={[0.267, 0.313, 0.498]}
@@ -1559,7 +1561,7 @@ export default function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Circle022.geometry}
-        material={nodes.Circle022.material}
+        material={materials["Sign tube"]}
         position={[-2.47, 4.953, -8.595]}
         scale={0.244}
       />
@@ -1567,7 +1569,7 @@ export default function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Circle023.geometry}
-        material={nodes.Circle023.material}
+        material={materials["Glass.001"]}
         position={[-2.47, 4.953, -8.595]}
         scale={0.244}
       />
@@ -1575,15 +1577,7 @@ export default function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Circle025.geometry}
-        material={nodes.Circle025.material}
-        position={[-2.47, 4.953, -8.595]}
-        scale={0.244}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes.Circle026.geometry}
-        material={nodes.Circle026.material}
+        material={materials["Sign tube"]}
         position={[-2.47, 4.953, -8.595]}
         scale={0.244}
       />
@@ -1591,14 +1585,15 @@ export default function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Plane054.geometry}
-        material={materials['Sign tube']}
+        material={materials["Sign tube"]}
         position={[-0.763, 13.969, 7.756]}
-        rotation={[Math.PI / 2, 0, 0]}>
+        rotation={[Math.PI / 2, 0, 0]}
+      >
         <mesh
           castShadow
           receiveShadow
           geometry={nodes.Plane055.geometry}
-          material={materials['Sign tube']}
+          material={materials["Sign tube"]}
           position={[0, 2.445, -0.335]}
           rotation={[-Math.PI / 2, 0, 0]}
         />
@@ -1614,7 +1609,7 @@ export default function Model(props) {
           castShadow
           receiveShadow
           geometry={nodes.Plane057.geometry}
-          material={materials['Sign tube']}
+          material={materials["Sign tube"]}
           position={[0, 2.445, -0.087]}
           rotation={[-Math.PI / 2, 0, 0]}
         />
@@ -1622,7 +1617,7 @@ export default function Model(props) {
           castShadow
           receiveShadow
           geometry={nodes.Vert019.geometry}
-          material={materials['Sign tube']}
+          material={materials["Sign tube"]}
           position={[0, 0.131, -0.168]}
           rotation={[-Math.PI / 2, 0, 0]}
         />
@@ -1631,10 +1626,11 @@ export default function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Vert022.geometry}
-        material={nodes.Vert022.material}
+        material={materials["Sign tube"]}
         position={[3.18, 3.665, -11.028]}
         rotation={[0, Math.PI / 2, 0]}
-        scale={[0.693, 0.781, 0.866]}>
+        scale={[0.693, 0.781, 0.866]}
+      >
         <mesh
           castShadow
           receiveShadow
@@ -1647,8 +1643,32 @@ export default function Model(props) {
       <mesh
         castShadow
         receiveShadow
+        geometry={nodes.Circle005.geometry}
+        material={materials["Sign tube"]}
+        position={[8.262, 11.795, -3.591]}
+        scale={0.244}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Circle027.geometry}
+        material={materials["Glass.001"]}
+        position={[8.262, 11.795, -3.591]}
+        scale={0.244}
+      />
+      <mesh
+        castShadow
+        receiveShadow
+        geometry={nodes.Circle028.geometry}
+        material={materials["Sign tube"]}
+        position={[8.262, 11.795, -3.591]}
+        scale={0.244}
+      />
+      <mesh
+        castShadow
+        receiveShadow
         geometry={nodes.Text.geometry}
-        material={materials['Material.001']}
+        material={materials["Material.001"]}
         position={[-5.37, 4.352, -5.621]}
         rotation={[Math.PI / 2, 0, 1.571]}
         scale={0.879}
@@ -1657,7 +1677,7 @@ export default function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Text001.geometry}
-        material={materials['Material.002']}
+        material={materials["Material.002"]}
         position={[-5.435, 3.787, -5.637]}
         rotation={[Math.PI / 2, 0, 1.571]}
         scale={1.29}
@@ -1666,14 +1686,14 @@ export default function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Vert010.geometry}
-        material={nodes.Vert010.material}
+        material={materials["Tube "]}
         position={[-3.264, 16.611, 4.657]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.Vert011.geometry}
-        material={nodes.Vert011.material}
+        material={materials["Tube "]}
         position={[-4.147, 16.611, 4.657]}
       />
       <mesh
@@ -1687,7 +1707,7 @@ export default function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Vert013.geometry}
-        material={nodes.Vert013.material}
+        material={materials["Tube "]}
         position={[-2.913, -0.338, -11.749]}
       />
       <mesh
@@ -1766,21 +1786,21 @@ export default function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Vert.geometry}
-        material={materials['Tube ']}
+        material={materials["Tube "]}
         position={[5.943, -0.313, 1.569]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.Vert002.geometry}
-        material={materials['Tube ']}
+        material={materials["Tube "]}
         position={[5.678, 9.559, -1.13]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.Vert003.geometry}
-        material={materials['Tube ']}
+        material={materials["Tube "]}
         position={[6.969, 9.559, 5.976]}
       />
       <mesh
@@ -1794,7 +1814,7 @@ export default function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Plane023.geometry}
-        material={nodes.Plane023.material}
+        material={materials["Metal blanco"]}
         position={[-4.256, 16.492, 4.659]}
         rotation={[Math.PI / 2, 0, 0]}
       />
@@ -1809,49 +1829,49 @@ export default function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Vert004.geometry}
-        material={materials['Tube ']}
+        material={materials["Tube "]}
         position={[-3.36, 8.185, 4.458]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.Plane024.geometry}
-        material={nodes.Plane024.material}
+        material={materials["Metal blanco"]}
         position={[3.63, 15.801, 2.015]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.Plane025.geometry}
-        material={nodes.Plane025.material}
+        material={materials["Metal blanco"]}
         position={[3.63, 15.801, 2.015]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.Vert001.geometry}
-        material={materials['Sign tube']}
+        material={materials["Sign tube"]}
         position={[3.289, 7.695, 4.096]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.Vert005.geometry}
-        material={materials['Sign tube']}
+        material={materials["Sign tube"]}
         position={[-1.517, 7.695, 4.096]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.Vert006.geometry}
-        material={materials['Sign tube']}
+        material={materials["Sign tube"]}
         position={[-7.863, 12.327, 5.263]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.Vert007.geometry}
-        material={materials['Sign tube']}
+        material={materials["Sign tube"]}
         position={[-7.863, 10.672, 5.263]}
       />
       <mesh
@@ -1865,14 +1885,14 @@ export default function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Plane029.geometry}
-        material={nodes.Plane029.material}
+        material={materials["Material.004"]}
         position={[0, -0.689, -0.977]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.Plane030.geometry}
-        material={nodes.Plane030.material}
+        material={materials["Material.004"]}
         position={[0.464, -0.689, -0.977]}
       />
       <mesh
@@ -1886,7 +1906,7 @@ export default function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Plane032.geometry}
-        material={materials['Sign tube']}
+        material={materials["Sign tube"]}
         position={[5.887, 12.432, -3.332]}
         rotation={[0, 0, -Math.PI / 2]}
       />
@@ -1894,7 +1914,7 @@ export default function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Plane033.geometry}
-        material={nodes.Plane033.material}
+        material={materials["Black Gloss"]}
         position={[5.686, 12.432, -3.332]}
         rotation={[0, 0, -Math.PI / 2]}
       />
@@ -1902,7 +1922,7 @@ export default function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Plane034.geometry}
-        material={nodes.Plane034.material}
+        material={materials["Metal blanco"]}
         position={[5.678, 9.559, -0.297]}
         rotation={[0, 0, -Math.PI / 2]}
       />
@@ -1910,14 +1930,14 @@ export default function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Vert009.geometry}
-        material={materials['Sign tube']}
+        material={materials["Sign tube"]}
         position={[8.098, 3.806, -3.393]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.Plane035.geometry}
-        material={materials['Sign tube']}
+        material={materials["Sign tube"]}
         position={[-6.308, -0.388, 1.908]}
         scale={2}
       />
@@ -1925,7 +1945,7 @@ export default function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Plane037.geometry}
-        material={materials['Sign tube']}
+        material={materials["Sign tube"]}
         position={[-5.989, -0.157, 1.538]}
         scale={1.968}
       />
@@ -1933,7 +1953,7 @@ export default function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Plane036.geometry}
-        material={materials['Sign tube']}
+        material={materials["Sign tube"]}
         position={[-5.989, -0.157, 1.538]}
         scale={1.968}
       />
@@ -1941,7 +1961,7 @@ export default function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Plane038.geometry}
-        material={materials['Sign tube']}
+        material={materials["Sign tube"]}
         position={[-5.989, -0.157, 1.538]}
         scale={1.968}
       />
@@ -1949,7 +1969,7 @@ export default function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Plane021.geometry}
-        material={nodes.Plane021.material}
+        material={materials["Material.006"]}
         position={[-3.478, 16.496, 5.643]}
         rotation={[Math.PI / 2, 0, 0]}
       />
@@ -1957,7 +1977,7 @@ export default function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Plane039.geometry}
-        material={nodes.Plane039.material}
+        material={materials["Material.006"]}
         position={[-3.478, 16.496, 5.643]}
         rotation={[Math.PI / 2, 0, 0]}
       />
@@ -1973,7 +1993,7 @@ export default function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Circle009.geometry}
-        material={nodes.Circle009.material}
+        material={materials["Material.006"]}
         position={[-5.101, 16.499, 5.45]}
         rotation={[Math.PI / 2, 0, 0]}
       />
@@ -2036,17 +2056,18 @@ export default function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Cube003.geometry}
-        material={materials['Material.001']}
+        material={materials["Material.001"]}
         position={[-7.863, 14.961, 6.467]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.Circle013.geometry}
-        material={nodes.Circle013.material}
+        material={materials["Material.006"]}
         position={[6.523, 7.487, -1.472]}
         rotation={[Math.PI / 2, 0, -Math.PI / 2]}
-        scale={1.029}>
+        scale={1.029}
+      >
         <mesh
           castShadow
           receiveShadow
@@ -2058,7 +2079,7 @@ export default function Model(props) {
           castShadow
           receiveShadow
           geometry={nodes.Plane049.geometry}
-          material={nodes.Plane049.material}
+          material={materials["Material.006"]}
           position={[1.983, 0.193, 0.003]}
           scale={[1.237, 1, 1]}
         />
@@ -2066,7 +2087,7 @@ export default function Model(props) {
           castShadow
           receiveShadow
           geometry={nodes.Plane050.geometry}
-          material={nodes.Plane050.material}
+          material={materials["Material.006"]}
           position={[1.983, 0.193, 0.003]}
           scale={[1.237, 1, 1]}
         />
@@ -2075,14 +2096,14 @@ export default function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Cube006.geometry}
-        material={materials['Material.001']}
+        material={materials["Material.001"]}
         position={[-9.006, 14.961, 6.467]}
       />
       <mesh
         castShadow
         receiveShadow
         geometry={nodes.Cube007.geometry}
-        material={materials['Black Gloss']}
+        material={materials["Black Gloss"]}
         position={[15.608, 14.817, -10.154]}
       />
       <mesh
@@ -2096,7 +2117,7 @@ export default function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Plane059.geometry}
-        material={nodes.Plane059.material}
+        material={materials.Heramientas}
         position={[0.359, 5.704, -9.057]}
         rotation={[2.819, 0, 0]}
         scale={[3.109, 2.803, 2.803]}
@@ -2105,12 +2126,12 @@ export default function Model(props) {
         castShadow
         receiveShadow
         geometry={nodes.Plane058.geometry}
-        material={nodes.Plane058.material}
+        material={materials["Cementro suelo"]}
         position={[0.837, -0.027, 1.69]}
         scale={14.505}
       />
     </group>
-  )
+  );
 }
 
-useGLTF.preload('/building-unwraping-optimized.glb')
+useGLTF.preload("/building-unwraping-optimized.glb");
