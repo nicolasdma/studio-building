@@ -1,4 +1,4 @@
-import { Suspense, useRef, useState } from "react";
+import { Suspense, useRef, useState, useEffect } from "react";
 import { OrbitControls, Bvh, Center, useHelper } from "@react-three/drei";
 import { Perf } from "r3f-perf";
 import Model from "../Model.jsx";
@@ -16,27 +16,20 @@ export default function Experience() {
   const controlsRef = useRef();
   const pointLightRef = useRef();
   const [goal, setGoal] = useState(null);
+  const [isShadowCalculated, setIsShadowCalculated] = useState(false);
 
-  // 👇 add Leva controls for the point light position
-  // const pointLightPosition = useControls("Point Light", {
-  //   x: { value: -1.6, min: -10, max: 10, step: 0.01 },
-  //   y: { value: -6.2, min: -10, max: 10, step: 0.01 },
-  //   z: { value: -1.81, min: -10, max: 10, step: 0.01 },
-  // });
 
-  const pointLightPosition = useControls("Point Light", {
-    x: { value: 8.262, min: -10, max: 10, step: 0.01 },
-    y: { value: 11.795, min: -10, max: 10, step: 0.01 },
-    z: { value: -3.59, min: -10, max: 10, step: 0.01 },
-  });
 
-  // 👇 add Leva control to toggle the point light helper visibility
-  const { showHelper } = useControls({
-    showHelper: { value: false, label: "Show Point Light Helper" },
-  });
-
-  // 👇 only add the helper when showHelper is true
-  useHelper(showHelper ? pointLightRef : null, PointLightHelper, 1, "hotpink");
+  // 👇 Only calculate shadows in the first frame
+  useEffect(() => {
+    if (!isShadowCalculated) {
+      const light = pointLightRef.current;
+      if (light) {
+        light.castShadow = true; // Enable shadow calculation on first frame
+      }
+      setIsShadowCalculated(true); // Mark as calculated
+    }
+  }, [isShadowCalculated]);
 
   useFrame(() => {
     if (goal && controlsRef.current) {
@@ -47,6 +40,11 @@ export default function Experience() {
       if (camera.position.distanceTo(goal.position) < 0.1) {
         setGoal(null);
       }
+    }
+
+    // Disable shadows after the first frame calculation
+    if (isShadowCalculated && pointLightRef.current) {
+      pointLightRef.current.castShadow = false; // Disable shadow updates after first frame
     }
   });
 
@@ -109,9 +107,9 @@ export default function Experience() {
           intensity={50}
           color={"#FFBB59FF"}
           position={[
-            pointLightPosition.x,
-            pointLightPosition.y,
-            pointLightPosition.z,
+            8.26,
+            10.00,
+            -3.59,
           ]}
           castShadow
         />
@@ -122,7 +120,6 @@ export default function Experience() {
           color={"#FFBB59FF"}
           position={[-4.49, -5.72, -8.48]}
           castShadow
- 
         />
       </group>
       <Suspense fallback={<Placeholder />}>
