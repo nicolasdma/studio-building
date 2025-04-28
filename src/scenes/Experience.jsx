@@ -8,7 +8,7 @@ import Effects from "./Effects.jsx";
 import { useThree, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import WindowShaders from "../WindowShaders.jsx";
-import { useControls } from "leva"; // 👈 import leva
+
 import { PointLightHelper } from "three";
 
 export default function Experience() {
@@ -24,17 +24,6 @@ export default function Experience() {
   const [isActive, setIsActive] = useState(false);
   
   // Add Leva controls for light position
-  const { lightPositionX, lightPositionY, lightPositionZ } = useControls({
-    lightPositionX: {
-      value: -4.49, min: -10, max: 10, step: 0.1, label: "Light X"
-    },
-    lightPositionY: {
-      value: -5.72, min: -10, max: 10, step: 0.1, label: "Light Y"
-    },
-    lightPositionZ: {
-      value: -8.48, min: -10, max: 10, step: 0.1, label: "Light Z"
-    },
-  });
 
   // Add PointLightHelper with red color
   useHelper(thirdLightRef, PointLightHelper, 1, "red");
@@ -104,6 +93,8 @@ export default function Experience() {
         makeDefault
         minPolarAngle={2}
         maxPolarAngle={2}
+        enablePan={false}
+        enableZoom={false}
       />
 
       <Lights />

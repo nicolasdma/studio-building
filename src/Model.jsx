@@ -1,7 +1,33 @@
 import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
+import * as THREE from "three";
+import { useControls } from "leva"; // 👈 import leva
 
 export default function Model({ onClick }) {
+  const { lightPositionX, lightPositionY, lightPositionZ } = useControls({
+    lightPositionX: {
+      value: -3.7,
+      min: -10,
+      max: 10,
+      step: 0.1,
+      label: "Light X",
+    },
+    lightPositionY: {
+      value: 3.2,
+      min: -10,
+      max: 10,
+      step: 0.1,
+      label: "Light Y",
+    },
+    lightPositionZ: {
+      value: 4.4,
+      min: -10,
+      max: 10,
+      step: 0.1,
+      label: "Light Z",
+    },
+  });
+
   const { nodes, materials } = useGLTF("/building-unwraping-optimized.glb");
   const [currentPointerPos, setCurrentPointerPos] = React.useState(null);
 
@@ -644,7 +670,20 @@ export default function Model({ onClick }) {
         geometry={nodes.Plane014.geometry}
         material={materials.Heramientas}
         position={[-3.588, -0.308, 5.954]}
+        onPointerEnter={cursorPointer}
+        onPointerLeave={defaultPointer}
+        onPointerDown={onMouseDown}
+        onPointerUp={(e) => onMouseUp(e, [0, 0.01, 0.3])}
+        // material={new THREE.MeshBasicMaterial({ wireframe: true })}
       />
+      <mesh
+        position={[-3.3, 3.1, 4.2]}
+        scale={0.7}
+        rotation={[0, 2.76, 0]}
+      >
+        <boxGeometry attach="geometry" args={[1, 1, 1]} />
+        <meshStandardMaterial attach="material" color="#6be092" />
+      </mesh>
       <mesh
         castShadow
         receiveShadow
