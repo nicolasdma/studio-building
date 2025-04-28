@@ -14,16 +14,35 @@ import { PointLightHelper } from "three";
 export default function Experience() {
   const { camera } = useThree();
   const controlsRef = useRef();
+
   const pointLightRef = useRef();
+  const secondLightRef = useRef();
+  const thirdLightRef = useRef();
+
   const [goal, setGoal] = useState(null);
   const [isShadowCalculated, setIsShadowCalculated] = useState(false);
+  const [isActive, setIsActive] = useState(false);
+  
+  // Add Leva controls for light position
+  const { lightPositionX, lightPositionY, lightPositionZ } = useControls({
+    lightPositionX: {
+      value: -4.49, min: -10, max: 10, step: 0.1, label: "Light X"
+    },
+    lightPositionY: {
+      value: -5.72, min: -10, max: 10, step: 0.1, label: "Light Y"
+    },
+    lightPositionZ: {
+      value: -8.48, min: -10, max: 10, step: 0.1, label: "Light Z"
+    },
+  });
 
-
+  // Add PointLightHelper with red color
+  useHelper(thirdLightRef, PointLightHelper, 1, "red");
 
   // 👇 Only calculate shadows in the first frame
   useEffect(() => {
     if (!isShadowCalculated) {
-      const light = pointLightRef.current;
+      const light = thirdLightRef.current;
       if (light) {
         light.castShadow = true; // Enable shadow calculation on first frame
       }
@@ -43,32 +62,34 @@ export default function Experience() {
     }
 
     // Disable shadows after the first frame calculation
-    if (isShadowCalculated && pointLightRef.current) {
-      pointLightRef.current.castShadow = false; // Disable shadow updates after first frame
+    if (isShadowCalculated && thirdLightRef.current) {
+      thirdLightRef.current.castShadow = false; // Disable shadow updates after first frame
     }
   });
 
-  const moveTo = (e, camPosition, camRotation) => {
+  const moveTo = (e, dir) => {
     const { object } = e;
+
     const bbox = new THREE.Box3().setFromObject(object);
     const center = new THREE.Vector3();
     bbox.getCenter(center);
 
-    const direction = new THREE.Vector3(0, 0, 0.25);
+    const direction = new THREE.Vector3(...dir);
     const size = bbox.getSize(new THREE.Vector3()).length();
     const distance = Math.max(4, size * 1.5);
+    
     const position = center.clone().add(direction.multiplyScalar(distance));
 
+    if (controlsRef.current) {
+      controlsRef.current.minPolarAngle = 1.4;
+      controlsRef.current.update();
+    }
+
+    setIsActive(true);
     setGoal({
       position,
       target: center,
     });
-
-    if (controlsRef.current) {
-      controlsRef.current.target.copy(center);
-      camera.lookAt(center);
-      controlsRef.current.update();
-    }
   };
 
   return (
@@ -83,8 +104,6 @@ export default function Experience() {
         makeDefault
         minPolarAngle={2}
         maxPolarAngle={2}
-        enablePan={false}
-        enableZoom={false}
       />
 
       <Lights />
@@ -101,30 +120,28 @@ export default function Experience() {
         shadow-mapSize-height={2048}
         shadow-radius={4}
       />
+      
       <group dispose={null} rotation={[0, Math.PI / 7, 0]}>
         <pointLight
-          ref={pointLightRef}
-          intensity={50}
+          ref={secondLightRef}
+          intensity={5}
           color={"#FFBB59FF"}
-          position={[
-            8.26,
-            10.00,
-            -3.59,
-          ]}
+          position={[7.8, 0.9, 0.6]} // Bind the position to the controls
           castShadow
         />
 
         <pointLight
-          ref={pointLightRef}
           intensity={5}
           color={"#FFBB59FF"}
-          position={[-4.49, -5.72, -8.48]}
+          position={[0.3, -6.0, -8.5]}
+          // position={[lightPositionX, lightPositionY, lightPositionZ]}
           castShadow
         />
       </group>
+      
       <Suspense fallback={<Placeholder />}>
         <Center>
-          <Model />
+          <Model onClick={moveTo} />
           <WindowShaders />
         </Center>
       </Suspense>
