@@ -680,9 +680,33 @@ export default function Model({ onClick }) {
         position={[-3.3, 3.1, 4.2]}
         scale={0.7}
         rotation={[0, 2.76, 0]}
+        castShadow
+        receiveShadow
       >
         <boxGeometry attach="geometry" args={[1, 1, 1]} />
-        <meshStandardMaterial attach="material" color="#6be092" />
+        <meshStandardMaterial attach="material" color="black" />
+      </mesh>
+      <mesh
+          castShadow
+          receiveShadow
+        // position={[lightPositionX, lightPositionY, lightPositionZ]}
+        position={[-4.6, 2.2, 4.5]}
+        scale={[0.25, 0.35, 0.25]}
+        rotation={[0, 2.76, 0]}
+      >
+        <sphereGeometry attach="geometry" args={[1, 1, 1]} />
+        <meshStandardMaterial attach="material" color="black" />
+      </mesh>
+      <mesh
+          castShadow
+          receiveShadow
+        // position={[lightPositionX, lightPositionY, lightPositionZ]}
+        position={[-3.5, 2.2, 4.3]}
+        scale={.4}
+        rotation={[0, 2.76, 0]}
+      >
+        <sphereGeometry attach="geometry" />
+        <meshStandardMaterial attach="material" color="black" />
       </mesh>
       <mesh
         castShadow
