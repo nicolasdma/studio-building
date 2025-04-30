@@ -15,6 +15,39 @@ import { ToneMappingMode } from "postprocessing";
 import { useRef } from "react";
 import AudioZoneController from "./utils/AudioZoneController.jsx";
 import useUnlockAudio from "./hooks/useUnlockAudio.js";
+import { Html } from "@react-three/drei";
+
+const styles = {
+  container: {
+    position: "absolute",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-50%, -50%)",
+    color: "#fff",
+    textAlign: "center",
+  },
+  header: {
+    fontSize: "2rem",
+    marginBottom: "1rem",
+  },
+  progressBarContainer: {
+    width: "80%",
+    height: "20px",
+    backgroundColor: "#555",
+    borderRadius: "10px",
+    margin: "0.5rem auto",
+  },
+  progressBar: {
+    height: "100%",
+    backgroundColor: "#4caf50",
+    borderRadius: "10px",
+    transition: "width 0.1s ease-in-out",
+  },
+  percentage: {
+    fontSize: "1.5rem",
+    marginTop: "0.5rem",
+  },
+};
 
 const App = () => {
   const audioRefs = {
@@ -131,6 +164,48 @@ const App = () => {
           />
         </EffectComposer>
       </Canvas>
+      <div
+            style={{
+              position: "absolute",
+              bottom: "20px",
+              width: "100vw",
+              display: "flex",
+              justifyContent: "center", 
+            }}
+          >
+
+        <div
+          style={{
+            backgroundColor: "rgba(0, 0, 0, 0.7)",
+            padding: "1rem",
+            borderRadius: "20px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            color: "#fff",
+            fontSize: "1.2rem",
+            fontWeight: "600",
+            // border: "2px solid #4caf50",
+            boxShadow: "0 4px 12px rgba(0, 0, 0, 0.581)",
+            // width: "max-content",
+            minWidth: "200px",
+            textAlign: "center",
+            lineHeight: "1.5",
+          }}
+        >
+          <span
+            style={{
+              fontSize: ".8rem",
+              fontWeight: "600",
+              letterSpacing: "1px",
+              fontFamily: "Arial, sans-serif",
+              color: "#4caf50",
+            }}
+          >
+            🚧 Work in Progress 🚧
+          </span>
+        </div>
+      </div>
     </>
   );
 };
