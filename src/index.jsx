@@ -15,7 +15,14 @@ import { ToneMappingMode } from "postprocessing";
 import { useRef } from "react";
 import AudioZoneController from "./utils/AudioZoneController.jsx";
 import useUnlockAudio from "./hooks/useUnlockAudio.js";
-import { Html } from "@react-three/drei";
+import Hero from "./components/Hero.jsx";
+import { navItems } from "./data";
+import { FloatingNav } from "./components/ui/FloatingNav";
+import Grid from "./components/ui/Grid";
+import RecentProjects from "./components/RecentProjects";
+import Clients from "./components/Clients";
+import { Experience as TestExperience } from "./components/Experience";
+import Footer from "./components/Footer";
 
 const styles = {
   container: {
@@ -116,6 +123,9 @@ const App = () => {
           position: [11, 3, 10],
           zoom: 0.8,
         }}
+        style={{
+          position: "fixed"
+        }}
       >
         <color attach="background" args={["black"]} />
         <fog attach="fog" args={["#0f1a2a", 10, 19]} />
@@ -164,16 +174,28 @@ const App = () => {
           />
         </EffectComposer>
       </Canvas>
-      <div
-            style={{
-              position: "absolute",
-              bottom: "20px",
-              width: "100vw",
-              display: "flex",
-              justifyContent: "center", 
-            }}
-          >
 
+      <main className="relative translate-y-[100vh] bg-black-100 flex justify-center items-center flex-col overflow-hidden mx-auto sm:px-10 px-5">
+        <div className="w-full max-w-5xl">
+          <FloatingNav navItems={navItems} />
+          <Hero />
+          <Grid />
+          <RecentProjects />
+          <Clients />
+          <TestExperience />
+          <Footer />
+        </div>
+      </main>
+
+      <div
+        style={{
+          position: "fixed",
+          bottom: "20px",
+          width: "100vw",
+          display: "flex",
+          justifyContent: "center",
+        }}
+      >
         <div
           style={{
             backgroundColor: "rgba(0, 0, 0, 0.7)",
