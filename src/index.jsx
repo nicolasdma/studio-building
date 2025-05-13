@@ -9,7 +9,6 @@ import {
   Vignette,
   ToneMapping,
   Glitch,
-  DepthOfField,
 } from "@react-three/postprocessing";
 import { ToneMappingMode } from "postprocessing";
 import { useRef } from "react";
